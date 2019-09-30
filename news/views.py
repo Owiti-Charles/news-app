@@ -4,7 +4,7 @@ import datetime as dt
 
 
 def welcome(request):
-    return HttpResponse('Welcome to the Moringa Tribune')
+    return render(request, 'welcome.html')
 
 
 def convert_dates(dates):
@@ -27,7 +27,7 @@ def news_of_day(request):
     return HttpResponse(html)
 
 
-def past_days_news(request, past_date):
+def past_day_news(request, past_date):
     try:
         date = dt.datetime.strptime(past_date, '%Y-%m-%d').date()
     except ValueError:
