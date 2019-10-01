@@ -10,6 +10,9 @@ class EditorTestClass(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.charles, Editor))
 
+    def test_verbose_name_plural(self):
+        self.assertEqual(str(Editor._meta.verbose_name_plural), 'editors')
+
     def test_save_method(self):
         self.charles.save_e()
         editors = Editor.objects.all()

@@ -6,6 +6,10 @@ class Editor(models.Model):
     last_name = models.CharField(max_length=20)
     email = models.EmailField()
 
+    def editors(self):
+        editors = Editor.objects.all()
+        return editors
+
     def save_e(self):
         self.save()
 
