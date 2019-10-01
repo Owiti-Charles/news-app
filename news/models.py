@@ -6,6 +6,9 @@ class Editor(models.Model):
     last_name = models.CharField(max_length=20)
     email = models.EmailField()
 
+    def save_e(self):
+        self.save()
+
     def __str__(self):
         return self.first_name
 
@@ -27,3 +30,4 @@ class Articles(models.Model):
     post = models.TextField()
     editor = models.ForeignKey(Editor)
     tags = models.ManyToManyField(Tags)
+    pub_date = models.DateTimeField(auto_now_add=True)
