@@ -5,7 +5,7 @@ from .models import Editor, Articles, Tags
 
 class EditorTestClass(TestCase):
     def setUp(self):
-        self.charles = Editor(first_name='charles', last_name='mikey', email='info@gmail.com')
+        self.charles = Editor(id=1, first_name='charles', last_name='mikey', email='info@gmail.com')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.charles, Editor))
@@ -18,4 +18,4 @@ class EditorTestClass(TestCase):
     def test_delete_method(self):
         self.charles.delete_e()
         editors = Editor.objects.all()
-        self.assertTrue(len(editors) == 0)
+        self.assertTrue(len(editors) < 1)

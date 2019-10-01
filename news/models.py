@@ -9,6 +9,9 @@ class Editor(models.Model):
     def save_e(self):
         self.save()
 
+    def delete_e(self):
+        self.delete()
+
     def __str__(self):
         return self.first_name
 
