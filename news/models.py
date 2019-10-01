@@ -1,12 +1,15 @@
 from django.db import models
+import datetime as dt
 
 
 class Editor(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     email = models.EmailField()
+    phone_number = models.CharField(max_length=10, blank=True)
 
-    def editors(self):
+    @classmethod
+    def get_editors(cls):
         editors = Editor.objects.all()
         return editors
 
@@ -38,3 +41,14 @@ class Articles(models.Model):
     editor = models.ForeignKey(Editor)
     tags = models.ManyToManyField(Tags)
     pub_date = models.DateTimeField(auto_now_add=True)
+
+    @classmethod
+    def today_news(cls):
+        today = dt.date.today()
+        news = cls.objects.filter(pub_date=today)
+        return news
+
+    @classmethod
+    def days_news(cls, date):
+        news = cls.objects.filter(pub_date__date=date)
+        return news
