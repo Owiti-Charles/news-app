@@ -41,6 +41,7 @@ class Articles(models.Model):
     editor = models.ForeignKey(Editor)
     tags = models.ManyToManyField(Tags)
     pub_date = models.DateTimeField(auto_now_add=True)
+    article_image = models.ImageField(upload_to='articles/')
 
     @classmethod
     def today_news(cls):
