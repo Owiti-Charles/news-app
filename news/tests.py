@@ -18,14 +18,14 @@ class EditorTestClass(TestCase):
         editors = Editor.objects.all()
         self.assertTrue(len(editors) > 0)
 
+    def test_get_editors(self):
+        editors = Editor.get_editors()
+        self.assertTrue(len(editors) == 1)
+
     def test_delete_method(self):
         self.charles.delete_e()
         editors = Editor.objects.all()
         self.assertTrue(len(editors) < 1)
-
-    def test_get_editors(self):
-        editors = Editor.get_editors()
-        self.assertEqual(len(editors), 1)
 
 
 class ArticleTestClass(TestCase):
